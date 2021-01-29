@@ -6,13 +6,15 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
     [Header("Queue Settings")]
-    public List<GameObject> currentQueue = new List<GameObject>();
+    public Transform headOfQueue;
+    public List<GameObject> currentQueueList = new List<GameObject>();
     [Header("Client Settings")]
-    public GameObject client;
-    public Transform clientSpawnTransform;
+    [SerializeField] GameObject client;
+    [SerializeField] Transform clientSpawnTransform;
     public int maxClientCount = 10;
+    public float spawnRate = 2f;
 
-    private int currentClientCount;
+    internal int currentClientCount;
     private bool canSpawnClient = true;
     private void Awake()
     {
@@ -45,7 +47,7 @@ public class GameManager : MonoBehaviour
                 finished = true;
                 break;
             }
-            yield return new WaitForSeconds(1.5f);
+            yield return new WaitForSeconds(spawnRate);
             currentClientCount++;
             Instantiate(client, clientSpawnTransform.position, Quaternion.identity);
             yield return null;

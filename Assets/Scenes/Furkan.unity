@@ -305,6 +305,16 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
+    - target: {fileID: 4358114745783768769, guid: 99805b3c4e7d465468400906f46dd52d,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 15.27841
+      objectReference: {fileID: 0}
+    - target: {fileID: 4358114745783768769, guid: 99805b3c4e7d465468400906f46dd52d,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 11.57
+      objectReference: {fileID: 0}
     - target: {fileID: 4358114745783768773, guid: 99805b3c4e7d465468400906f46dd52d,
         type: 3}
       propertyPath: m_StaticEditorFlags
@@ -538,7 +548,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93c2a30777e34ea42ace37387a815f5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentQueue: []
+  headOfQueue: {fileID: 1663084668}
+  currentQueueList: []
   client: {fileID: 1888827968407749668, guid: d07be9986fa110a48b38fca59b756d34, type: 3}
   clientSpawnTransform: {fileID: 1624880143}
   maxClientCount: 10
@@ -554,7 +565,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1581469125
 GameObject:
@@ -740,7 +751,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1663084664
 GameObject:
@@ -755,7 +766,7 @@ GameObject:
   - component: {fileID: 1663084666}
   - component: {fileID: 1663084665}
   m_Layer: 0
-  m_Name: Queue
+  m_Name: Queue Target
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
