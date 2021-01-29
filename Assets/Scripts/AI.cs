@@ -8,13 +8,15 @@ public class AI : MonoBehaviour
     NavMeshAgent agent;
     Transform target;
     private bool reachedFirstPos = false;
+    private int indexNumber;
     private void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
     }
     void Start()
     {
-        GameManager.instance.currentQueueList.Add(this.gameObject);
+        GameManager.instance.clientList.Add(this.gameObject);
+        indexNumber = GameManager.instance.clientList.Count - 1;
         target = RequestNewTarget();
     }
 
@@ -43,18 +45,28 @@ public class AI : MonoBehaviour
             }
 
         }
+        else
+        {
+            target = RequestNewTarget();
+        }
+    }
+    private void OnDisable()
+    {
+        GameManager.instance.clientList.Remove(this.gameObject);
+        GameManager.instance.currentClientCount--;
     }
     Transform RequestNewTarget()
     {
-        if (this.gameObject == GameManager.instance.currentQueueList[0].gameObject)
+        if (this.gameObject == GameManager.instance.clientList[0].gameObject)
         {
             agentOffset = 0.1f;
             return GameManager.instance.headOfQueue.transform;
         }
         else
         {
-            Transform newTarget = GameManager.instance.currentQueueList[GameManager.instance.currentClientCount - 2].transform;
+            Transform newTarget = GameManager.instance.clientList[GameManager.instance.currentClientCount - 2].transform;
             return newTarget;
         }
     }
+
 }

@@ -7,7 +7,7 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
     [Header("Queue Settings")]
     public Transform headOfQueue;
-    public List<GameObject> currentQueueList = new List<GameObject>();
+    public List<GameObject> clientList = new List<GameObject>();
     [Header("Client Settings")]
     [SerializeField] GameObject client;
     [SerializeField] Transform clientSpawnTransform;
