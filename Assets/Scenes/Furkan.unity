@@ -1696,7 +1696,7 @@ MonoBehaviour:
     client:
     - {fileID: 1888827968407749668, guid: d07be9986fa110a48b38fca59b756d34, type: 3}
     maxClientCount: 10
-    clientSpawnRate: 2
+    clientSpawnRate: 1
   beltToSpawn:
   - {fileID: 878976762}
   objectsToSpawn:
