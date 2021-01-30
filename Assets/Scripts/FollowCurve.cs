@@ -15,7 +15,7 @@ public class FollowCurve : MonoBehaviour
         {
             pointList.Add(curveToFollow.transform.GetChild(i));
         }
-
+        GameManager.instance.SpawnedObjectsList.Add(this.gameObject);
         StartCoroutine(MoveToPoint());
     }
     IEnumerator MoveToPoint()
@@ -41,6 +41,8 @@ public class FollowCurve : MonoBehaviour
         }
         else
         {
+            GameManager.instance.SpawnedObjectsList.Remove(this.gameObject);
+            GameManager.instance.currentObjectCount--;
             Destroy(this.gameObject);
         }
 

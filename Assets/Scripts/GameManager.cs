@@ -19,10 +19,12 @@ public class GameManager : MonoBehaviour
     public int maxObjectCount = 10;
     public float objectSpawnRate = 2f;
 
-    private List<GameObject> SpawnedObjectsList = new List<GameObject>();
+    internal List<GameObject> SpawnedObjectsList = new List<GameObject>();
     internal int currentObjectCount;
     internal int currentClientCount;
+    private int objectIndex = -1;
     private bool canSpawnClient = true;
+    private bool canSpawnObject = true;
     private void Awake()
     {
         if (instance == null)
@@ -34,16 +36,17 @@ public class GameManager : MonoBehaviour
             Destroy(this.gameObject);
         }
     }
-    private void Start()
-    {
-        StartCoroutine(SpawnNewObject());
-    }
     void Update()
     {
         if (canSpawnClient && currentClientCount < maxClientCount)
         {
             StartCoroutine(SpawnNewClient());
             canSpawnClient = false;
+        }
+        if (canSpawnObject && currentObjectCount < maxObjectCount)
+        {
+            StartCoroutine(SpawnNewObject());
+            canSpawnObject = false;
         }
     }
 
@@ -79,17 +82,23 @@ public class GameManager : MonoBehaviour
             yield return new WaitForSeconds(objectSpawnRate);
             currentObjectCount++;
             Transform targetParent = GetRandomBelt().transform;
-            GameObject objectClone = Instantiate(GetRandomObject(), targetParent.transform.GetChild(0).transform.position, Quaternion.identity);
+            GameObject objectClone = Instantiate(GetObject(), targetParent.transform.GetChild(0).transform.position, Quaternion.identity);
             objectClone.GetComponent<FollowCurve>().curveToFollow = targetParent.GetComponentInChildren<BezierCurve>();
+            yield return null;
         }
+        canSpawnObject = true;
     }
 
-    public GameObject GetRandomObject()
+    public GameObject GetObject()
     {
-        int index = Random.Range(0, objectsToSpawn.Length);
-        return objectsToSpawn[index];
-    }
+        objectIndex++;
+        if (objectIndex == objectsToSpawn.Length)
+        {
+            objectIndex = 0;
+        }   
+        return objectsToSpawn[objectIndex];
 
+    }
     public GameObject GetRandomBelt()
     {
         int index = Random.Range(0, beltToSpawn.Length);
