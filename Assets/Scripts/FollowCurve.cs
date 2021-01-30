@@ -9,7 +9,7 @@ public class FollowCurve : MonoBehaviour
     private List<Transform> pointList = new List<Transform>();
     private int index = 0;
     private Rigidbody rb;
-    public bool test;
+    private bool check;
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
@@ -22,16 +22,6 @@ public class FollowCurve : MonoBehaviour
         }
         GameManager.instance.SpawnedObjectsList.Add(this.gameObject);
         StartCoroutine(MoveToPoint());
-    }
-    private void Update()
-    {
-        if (test)
-        {
-            rb.isKinematic = false;
-            rb.useGravity = true;
-            StopAllCoroutines();
-            enabled = false;
-        }
     }
     IEnumerator MoveToPoint()
     {
@@ -62,13 +52,16 @@ public class FollowCurve : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.collider.tag == "Player")
+        if (check == false)
         {
-            rb.isKinematic = false;
-            rb.useGravity = true;
-            StopAllCoroutines();
-            enabled = false;
+            GameManager.instance.currentObjectCount--;
+            GameManager.instance.SpawnedObjectsList.Remove(this.gameObject);
+            check = true;
         }
+        rb.isKinematic = false;
+        rb.useGravity = true;
+        StopAllCoroutines();
+        enabled = false;
     }
     public int GetNextIndex()
     {
