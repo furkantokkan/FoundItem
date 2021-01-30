@@ -4,24 +4,17 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    [Header("QueueSettings")]
+    public QueueSettings[] queue;
     public static GameManager instance;
-    [Header("Queue Settings")]
-    public Transform headOfQueue;
-    public List<GameObject> clientList = new List<GameObject>();
-    [Header("Client Settings")]
-    [SerializeField] GameObject client;
-    [SerializeField] Transform clientSpawnTransform;
-    public int maxClientCount = 10;
-    public float clientSpawnRate = 2f;
     [Header("Object Settings")]
     public GameObject[] beltToSpawn;
     public GameObject[] objectsToSpawn;
     public int maxObjectCount = 10;
     public float objectSpawnRate = 2f;
-
     internal List<GameObject> SpawnedObjectsList = new List<GameObject>();
     internal int currentObjectCount;
-    internal int currentClientCount;
+    internal int queueIndex = 0;
     private int objectIndex = -1;
     private bool canSpawnClient = true;
     private bool canSpawnObject = true;
@@ -38,10 +31,15 @@ public class GameManager : MonoBehaviour
     }
     void Update()
     {
-        if (canSpawnClient && currentClientCount < maxClientCount)
+        if (canSpawnClient && queue[queueIndex].currentClientCount < queue[queueIndex].maxClientCount)
         {
-            StartCoroutine(SpawnNewClient());
+            StartCoroutine(SpawnNewClient(queueIndex));
             canSpawnClient = false;
+            queueIndex++;
+            if (queueIndex == queue.Length)
+            {
+                queueIndex = 0;
+            }
         }
         if (canSpawnObject && currentObjectCount < maxObjectCount)
         {
@@ -49,21 +47,21 @@ public class GameManager : MonoBehaviour
             canSpawnObject = false;
         }
     }
-
-    public IEnumerator SpawnNewClient()
+    public IEnumerator SpawnNewClient(int givenIndex)
     {
         bool finished = false;
-
+        int startCount = queue[givenIndex].currentClientCount;
         while (!finished)
         {
-            if (currentClientCount == maxClientCount)
+            if (queue[givenIndex].currentClientCount == startCount + 1)
             {
                 finished = true;
                 break;
             }
-            yield return new WaitForSeconds(clientSpawnRate);
-            currentClientCount++;
-            Instantiate(client, clientSpawnTransform.position, Quaternion.identity);
+            yield return new WaitForSeconds(queue[givenIndex].clientSpawnRate);
+            queue[givenIndex].currentClientCount++;
+            GameObject client = Instantiate(queue[givenIndex].client[0].gameObject, queue[givenIndex].clientSpawnTransform.position, Quaternion.identity);
+            client.GetComponent<AI>().indexCount = givenIndex;
             yield return null;
         }
         canSpawnClient = true;
@@ -95,7 +93,7 @@ public class GameManager : MonoBehaviour
         if (objectIndex == objectsToSpawn.Length)
         {
             objectIndex = 0;
-        }   
+        }
         return objectsToSpawn[objectIndex];
 
     }
@@ -109,4 +107,17 @@ public class GameManager : MonoBehaviour
         int index = Random.Range(0, beltToSpawn.Length);
         return beltToSpawn[index];
     }
+}
+[System.Serializable]
+public class QueueSettings
+{
+    [Header("QueueSettings")]
+    public Transform headOfQueue;
+    public Transform clientSpawnTransform;
+    internal int currentClientCount;
+    internal List<GameObject> clientList = new List<GameObject>();
+    [Header("Client Settings")]
+    public GameObject[] client;
+    public int maxClientCount = 10;
+    public float clientSpawnRate = 2f;
 }

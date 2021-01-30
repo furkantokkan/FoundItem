@@ -13,7 +13,8 @@ public class AI : MonoBehaviour
 
     NavMeshAgent agent;
     Transform target;
-    private bool objectTaked = false;
+    internal int indexCount;
+    internal bool objectTaked = false;
     private bool reachedFirstPos = false;
     private void Awake()
     {
@@ -21,7 +22,7 @@ public class AI : MonoBehaviour
     }
     void Start()
     {
-        GameManager.instance.clientList.Add(this.gameObject);
+        GameManager.instance.queue[indexCount].clientList.Add(this.gameObject);
         target = RequestNewTarget();
         wantedObject = GameManager.instance.GetRandomObject();
     }
@@ -51,7 +52,7 @@ public class AI : MonoBehaviour
             }
             else
             {
-                Vector3 newPos = new Vector3(GameManager.instance.headOfQueue.position.x, transform.position.y, target.transform.position.z);
+                Vector3 newPos = new Vector3(GameManager.instance.queue[indexCount].headOfQueue.position.x, transform.position.y, target.transform.position.z);
                 float newPosDirection = Vector3.Distance(transform.position, newPos);
                 agent.SetDestination(newPos);
                 if (newPosDirection < agentOffset)
@@ -59,18 +60,17 @@ public class AI : MonoBehaviour
                     reachedFirstPos = true;
                 }
             }
-
         }
         else
         {
             target = RequestNewTarget();
         }
     }
-    bool canWantObject()
+   public bool canWantObject()
     {
-        if (transform.position.x >= GameManager.instance.headOfQueue.transform.position.x
-          && transform.position.z >= GameManager.instance.headOfQueue.transform.position.z &&
-          this.gameObject == GameManager.instance.clientList[0].gameObject)
+        if (transform.position.x >= GameManager.instance.queue[indexCount].headOfQueue.transform.position.x
+          && transform.position.z >= GameManager.instance.queue[indexCount].headOfQueue.transform.position.z &&
+          this.gameObject == GameManager.instance.queue[indexCount].clientList[0].gameObject)
         {
             return true;
         }
@@ -81,19 +81,19 @@ public class AI : MonoBehaviour
     }
     private void OnDisable()
     {
-        GameManager.instance.clientList.Remove(this.gameObject);
-        GameManager.instance.currentClientCount--;
+        GameManager.instance.queue[indexCount].clientList.Remove(this.gameObject);
+        GameManager.instance.queue[indexCount].currentClientCount--;
     }
     Transform RequestNewTarget()
     {
-        if (this.gameObject == GameManager.instance.clientList[0].gameObject)
+        if (this.gameObject == GameManager.instance.queue[indexCount].clientList[0].gameObject)
         {
             agentOffset = 0.1f;
-            return GameManager.instance.headOfQueue.transform;
+            return GameManager.instance.queue[indexCount].headOfQueue.transform;
         }
         else
         {
-            Transform newTarget = GameManager.instance.clientList[GameManager.instance.currentClientCount - 2].transform;
+            Transform newTarget = GameManager.instance.queue[indexCount].clientList[GameManager.instance.queue[indexCount].currentClientCount - 2].transform;
             return newTarget;
         }
     }
