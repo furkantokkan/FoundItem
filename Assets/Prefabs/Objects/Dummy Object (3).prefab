@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 4729923524043208104}
   - component: {fileID: 7414904163285651563}
   - component: {fileID: 4297906304602260354}
+  - component: {fileID: -3217798787015534046}
   m_Layer: 0
   m_Name: Dummy Object (3)
   m_TagString: CanBeGrabbed
@@ -125,4 +126,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   curveToFollow: {fileID: 0}
   timeBetwenPoints: 1
-  test: 0
+--- !u!114 &-3217798787015534046
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8816367444184527370}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 549336e1d9c9c9242b7467b317c4875a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

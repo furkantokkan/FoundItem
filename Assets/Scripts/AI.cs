@@ -2,13 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 public class AI : MonoBehaviour
 {
+    [Header("Move Settings")]
     public float agentOffset = 1f;
+    [Header("Object Pick Settings")]
+    public GameObject wantedObject;
+    public GameObject previewParrent;
+
     NavMeshAgent agent;
     Transform target;
+    private bool objectTaked = false;
     private bool reachedFirstPos = false;
-    private int indexNumber;
     private void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -16,12 +22,22 @@ public class AI : MonoBehaviour
     void Start()
     {
         GameManager.instance.clientList.Add(this.gameObject);
-        indexNumber = GameManager.instance.clientList.Count - 1;
         target = RequestNewTarget();
+        wantedObject = GameManager.instance.GetRandomObject();
     }
 
     void Update()
     {
+        if (canWantObject())
+        {
+            previewParrent.SetActive(true);
+            previewParrent.GetComponentInChildren<Image>().sprite = wantedObject.GetComponent<ObjectProperties>().previewImage;
+        }
+        else
+        {
+            previewParrent.SetActive(false);
+        }
+
         if (target)
         {
             if (reachedFirstPos)
@@ -48,6 +64,19 @@ public class AI : MonoBehaviour
         else
         {
             target = RequestNewTarget();
+        }
+    }
+    bool canWantObject()
+    {
+        if (transform.position.x >= GameManager.instance.headOfQueue.transform.position.x
+          && transform.position.z >= GameManager.instance.headOfQueue.transform.position.z &&
+          this.gameObject == GameManager.instance.clientList[0].gameObject)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
         }
     }
     private void OnDisable()

@@ -99,6 +99,11 @@ public class GameManager : MonoBehaviour
         return objectsToSpawn[objectIndex];
 
     }
+    public GameObject GetRandomObject()
+    {
+        int index = Random.Range(0, objectsToSpawn.Length);
+        return objectsToSpawn[index];
+    }
     public GameObject GetRandomBelt()
     {
         int index = Random.Range(0, beltToSpawn.Length);
