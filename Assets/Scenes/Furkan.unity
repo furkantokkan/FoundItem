@@ -1527,11 +1527,16 @@ MonoBehaviour:
   beltToSpawn:
   - {fileID: 878976762}
   objectsToSpawn:
-  - {fileID: 8450042526840732701, guid: 572a452d85cbdac41a520fb735fd9d18, type: 3}
-  - {fileID: 867817850403408324, guid: f16d1510c962c374d83877ea85965ac9, type: 3}
-  - {fileID: 8816367444184527370, guid: 0de9c714d4d386b41ab02a5b2028354f, type: 3}
-  - {fileID: 1727111460459055018, guid: 6228a01c6dff6a246a4ffcf9ac5c60f3, type: 3}
-  maxObjectCount: 4
+  - {fileID: 528074307196567380, guid: 8c070171868cad147ac1739c4d234b01, type: 3}
+  - {fileID: 7847088261317253971, guid: f89e5b7830c5e2740b8ced29ea07adbf, type: 3}
+  - {fileID: 6289527068979427691, guid: b54551d74a993d64b8e7079cf3a0744e, type: 3}
+  - {fileID: 7857794323746348469, guid: fa8b0f8b5e20d1c4d8bc0670d91df0bb, type: 3}
+  - {fileID: 4377031714667214744, guid: 6ab520fcfe050ac43bbf9746871eebaa, type: 3}
+  - {fileID: 616281314162972015, guid: 5682baa0fb4f5b54bbdce63a01f7e72d, type: 3}
+  - {fileID: 8587815178485123875, guid: 170a9259e030da84cb5b98a0117efad6, type: 3}
+  - {fileID: 3983176616284119091, guid: b6d5879841eade24996ccf19792b6999, type: 3}
+  - {fileID: 7280481322144436417, guid: 4b763b6d64474e04294092c43e849a9d, type: 3}
+  maxObjectCount: 9
   objectSpawnRate: 2
 --- !u!4 &1489458659
 Transform:
@@ -2002,7 +2007,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   APRRoot: {fileID: 603896709}
-  distance: 10
+  distance: 7
   smoothness: 0.15
   rotateCamera: 1
   rotateSpeed: 5

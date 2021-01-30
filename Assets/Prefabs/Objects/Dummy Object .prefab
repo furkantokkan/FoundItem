@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 5326541874037762534}
   - component: {fileID: -378432221885292540}
   m_Layer: 0
-  m_Name: Dummy Object (1)
+  m_Name: 'Dummy Object '
   m_TagString: CanBeGrabbed
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -138,3 +138,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 549336e1d9c9c9242b7467b317c4875a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  previewImage: {fileID: 0}
+  scoreAmount: 0
