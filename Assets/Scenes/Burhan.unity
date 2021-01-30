@@ -218,7 +218,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4084197588a7006408d9918180337a47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 931142180}
+  player: {fileID: 0}
   offset: {x: -4, y: 8, z: 4}
   smooth: 0.5
 --- !u!114 &44579969
@@ -442,7 +442,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &519846970
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -485,7 +485,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519846969}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 2, z: 0}
+  m_LocalPosition: {x: -4.263, y: 2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 759549256}
@@ -833,9 +833,9 @@ GameObject:
   - component: {fileID: 928725551}
   - component: {fileID: 928725550}
   - component: {fileID: 928725549}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Plane
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
