@@ -8722,6 +8722,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2505128326347472332, guid: a481a9e2d9e62be4e856ae0237b2b741,
         type: 3}
+      propertyPath: ImpactForce
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 2505128326347472332, guid: a481a9e2d9e62be4e856ae0237b2b741,
+        type: 3}
       propertyPath: coreStrength
       value: 1000
       objectReference: {fileID: 0}
