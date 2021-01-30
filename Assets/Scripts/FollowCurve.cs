@@ -8,6 +8,7 @@ public class FollowCurve : MonoBehaviour
     public float timeBetwenPoints = 1f;
     private List<Transform> pointList = new List<Transform>();
     private int index = 0;
+    internal bool reached = false;
 
     private void Start()
     {
@@ -25,7 +26,7 @@ public class FollowCurve : MonoBehaviour
 
         while (!reached)
         {
-            if (Vector3.Distance(transform.position, pointList[currentIndex].transform.position) < 0.15f)
+            if (Vector3.Distance(transform.position, pointList[currentIndex].transform.position) < 0.15f || reached == true)
             {
                 reached = true;
                 break;
