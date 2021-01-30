@@ -10,6 +10,7 @@ public class FollowCurve : MonoBehaviour
     private int index = 0;
     private Rigidbody rb;
     private bool check;
+    private bool droped;
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
@@ -52,16 +53,69 @@ public class FollowCurve : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
-        if (check == false)
+        if (collision.gameObject.tag == "Player")
         {
-            GameManager.instance.currentObjectCount--;
-            GameManager.instance.SpawnedObjectsList.Remove(this.gameObject);
-            check = true;
+            if (check == false)
+            {
+                GameManager.instance.currentObjectCount--;
+                GameManager.instance.SpawnedObjectsList.Remove(this.gameObject);
+                check = true;
+                droped = true;
+            }
+            rb.isKinematic = false;
+            rb.useGravity = true;
+            StopAllCoroutines();
         }
-        rb.isKinematic = false;
-        rb.useGravity = true;
-        StopAllCoroutines();
-        enabled = false;
+       else if (collision.collider.tag == "Belt")
+        {
+            if (droped)
+            {
+                StartCoroutine(MoveToPoint());
+                if (index == pointList.Count - 1)
+                {
+                    index--;
+                }
+                rb.isKinematic = false;
+                rb.useGravity = true;
+                GameManager.instance.currentObjectCount++;
+                GameManager.instance.SpawnedObjectsList.Add(this.gameObject);
+                check = false;
+                droped = false;
+            }
+        }
+    }
+    private void OnCollisionStay(Collision collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            if (check == false)
+            {
+                GameManager.instance.currentObjectCount--;
+                GameManager.instance.SpawnedObjectsList.Remove(this.gameObject);
+                check = true;
+                droped = true;
+            }
+            rb.isKinematic = false;
+            rb.useGravity = true;
+            StopAllCoroutines();
+        }
+        else if (collision.collider.tag == "Belt")
+        {
+            if (droped)
+            {
+                StartCoroutine(MoveToPoint());
+                if (index == pointList.Count - 1)
+                {
+                    index--;
+                }
+                rb.isKinematic = false;
+                rb.useGravity = true;
+                GameManager.instance.currentObjectCount++;
+                GameManager.instance.SpawnedObjectsList.Add(this.gameObject);
+                check = false;
+                droped = false;
+            }
+        }
     }
     public int GetNextIndex()
     {

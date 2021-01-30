@@ -9,6 +9,7 @@ TagManager:
   - Shelf
   - CanBeGrabbed
   - Ground
+  - Belt
   layers:
   - Default
   - TransparentFX
