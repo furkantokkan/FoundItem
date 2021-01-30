@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Item
   - Envanter
+  - Shelf
+  - CanBeGrabbed
+  - Ground
   layers:
   - Default
   - TransparentFX
@@ -17,11 +20,11 @@ TagManager:
   - 
   - 
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Player_1
+  - Player_2
+  - Player_3
+  - Player_4
+  - Ground
   - 
   - 
   - 
