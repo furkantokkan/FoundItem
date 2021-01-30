@@ -285,6 +285,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4358114744813388785, guid: 99805b3c4e7d465468400906f46dd52d,
+        type: 3}
+      propertyPath: m_Convex
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4358114744813388791, guid: 99805b3c4e7d465468400906f46dd52d,
         type: 3}
       propertyPath: m_StaticEditorFlags
@@ -1001,7 +1006,7 @@ MonoBehaviour:
   - {fileID: 867817850403408324, guid: f16d1510c962c374d83877ea85965ac9, type: 3}
   - {fileID: 8816367444184527370, guid: 0de9c714d4d386b41ab02a5b2028354f, type: 3}
   - {fileID: 1727111460459055018, guid: 6228a01c6dff6a246a4ffcf9ac5c60f3, type: 3}
-  maxObjectCount: 10
+  maxObjectCount: 4
   objectSpawnRate: 2
 --- !u!4 &1489458659
 Transform:

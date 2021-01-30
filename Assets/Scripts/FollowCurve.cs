@@ -8,8 +8,12 @@ public class FollowCurve : MonoBehaviour
     public float timeBetwenPoints = 1f;
     private List<Transform> pointList = new List<Transform>();
     private int index = 0;
-    internal bool reached = false;
-
+    private Rigidbody rb;
+    public bool test;
+    private void Awake()
+    {
+        rb = GetComponent<Rigidbody>();
+    }
     private void Start()
     {
         for (int i = 0; i < curveToFollow.transform.childCount; i++)
@@ -19,6 +23,16 @@ public class FollowCurve : MonoBehaviour
         GameManager.instance.SpawnedObjectsList.Add(this.gameObject);
         StartCoroutine(MoveToPoint());
     }
+    private void Update()
+    {
+        if (test)
+        {
+            rb.isKinematic = false;
+            rb.useGravity = true;
+            StopAllCoroutines();
+            enabled = false;
+        }
+    }
     IEnumerator MoveToPoint()
     {
         bool reached = false;
@@ -26,7 +40,7 @@ public class FollowCurve : MonoBehaviour
 
         while (!reached)
         {
-            if (Vector3.Distance(transform.position, pointList[currentIndex].transform.position) < 0.15f || reached == true)
+            if (Vector3.Distance(transform.position, pointList[currentIndex].transform.position) < 0.15f)
             {
                 reached = true;
                 break;
@@ -35,7 +49,6 @@ public class FollowCurve : MonoBehaviour
             transform.position = Vector3.MoveTowards(transform.position, pointList[currentIndex].transform.position, timeBetwenPoints * Time.deltaTime);
             yield return null;
         }
-
         if (currentIndex != curveToFollow.transform.childCount - 1)
         {
             StartCoroutine(MoveToPoint());
@@ -46,11 +59,20 @@ public class FollowCurve : MonoBehaviour
             GameManager.instance.currentObjectCount--;
             Destroy(this.gameObject);
         }
-
-
+    }
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.collider.tag == "Player")
+        {
+            rb.isKinematic = false;
+            rb.useGravity = true;
+            StopAllCoroutines();
+            enabled = false;
+        }
     }
     public int GetNextIndex()
     {
         return index++;
     }
+
 }
