@@ -34,9 +34,12 @@ public class GameManager : MonoBehaviour
     }
     private void Start()
     {
-        for (int i = 0; i < queue.Length - 1; i++)
+        if (queue != null)
         {
-            queue[i].objectGiver.SetActive(true);
+            for (int i = 0; i < queue.Length - 1; i++)
+            {
+                queue[i].objectGiver.SetActive(true);
+            }
         }
     }
     void Update()

@@ -5,7 +5,10 @@ using UnityEngine;
 public class TimerSC : MonoBehaviour
 {
     public float time = 120f;
-    public UnityEngine.UI.Text timerText;
+    public TMPro.TextMeshProUGUI timerText;
+
+    public GameObject InGame;
+    public GameObject Finish;
 
     void Start()
     {
@@ -17,5 +20,10 @@ public class TimerSC : MonoBehaviour
     {
         time -= Time.deltaTime;
         timerText.text = time.ToString("N1");
+        if(time <= 0)
+        {
+            Finish.SetActive(true);
+            InGame.SetActive(false);
+        }
     }
 }
