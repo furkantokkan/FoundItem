@@ -1,0 +1,78 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7171179203944651538
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7171179203944651536}
+  - component: {fileID: 7171179203944651537}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7171179203944651536
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7171179203944651538}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 57.868587, y: -50.704918, z: 35.34793}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7171179203944651537
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7171179203944651538}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93c2a30777e34ea42ace37387a815f5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  queue:
+  - headOfQueue: {fileID: 0}
+    clientSpawnTransform: {fileID: 0}
+    client:
+    - {fileID: 1888827968407749668, guid: d07be9986fa110a48b38fca59b756d34, type: 3}
+    maxClientCount: 10
+    clientSpawnRate: 2
+  - headOfQueue: {fileID: 0}
+    clientSpawnTransform: {fileID: 0}
+    client:
+    - {fileID: 1888827968407749668, guid: d07be9986fa110a48b38fca59b756d34, type: 3}
+    maxClientCount: 10
+    clientSpawnRate: 1
+  beltToSpawn:
+  - {fileID: 0}
+  objectsToSpawn:
+  - {fileID: 1374347629108569131, guid: 0857a59bb81e413469a8d1899f6b52e3, type: 3}
+  - {fileID: 528074307196567380, guid: 8c070171868cad147ac1739c4d234b01, type: 3}
+  - {fileID: 7847088261317253971, guid: f89e5b7830c5e2740b8ced29ea07adbf, type: 3}
+  - {fileID: 4509837380805360744, guid: 935ac3300eb27554ea1217f69bde7fec, type: 3}
+  - {fileID: 4675272434257796349, guid: 2c0933a57fa7cb846b835364ce1d1d9c, type: 3}
+  - {fileID: 6289527068979427691, guid: b54551d74a993d64b8e7079cf3a0744e, type: 3}
+  - {fileID: 7857794323746348469, guid: fa8b0f8b5e20d1c4d8bc0670d91df0bb, type: 3}
+  - {fileID: 4377031714667214744, guid: 6ab520fcfe050ac43bbf9746871eebaa, type: 3}
+  - {fileID: 8823426130775926772, guid: a503c81c03105034287691f9738f496f, type: 3}
+  - {fileID: 6625039150386693851, guid: d06eb233153eea445af9400db2c8af0c, type: 3}
+  - {fileID: 616281314162972015, guid: 5682baa0fb4f5b54bbdce63a01f7e72d, type: 3}
+  - {fileID: 8587815178485123875, guid: 170a9259e030da84cb5b98a0117efad6, type: 3}
+  - {fileID: 5399639205397331723, guid: 3eb10ddfa9639b14cb41444040148e96, type: 3}
+  - {fileID: 3983176616284119091, guid: b6d5879841eade24996ccf19792b6999, type: 3}
+  - {fileID: 7280481322144436417, guid: 4b763b6d64474e04294092c43e849a9d, type: 3}
+  maxObjectCount: 15
+  objectSpawnRate: 2
