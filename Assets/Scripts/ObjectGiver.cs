@@ -7,7 +7,7 @@ public class ObjectGiver : MonoBehaviour
 {
     public int objectCheckIndex;
     private bool founded;
-    private GameObject actionButton;
+    public GameObject actionButton;
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "CanBeGrabbed")
@@ -20,6 +20,7 @@ public class ObjectGiver : MonoBehaviour
                 {
                     print("match");
                     GameManager.instance.queue[objectCheckIndex].clientList[0].GetComponent<AI>().objectTaked = true;
+                    GameManager.instance.queue[objectCheckIndex].clientList[0].GetComponent<AI>().LeaveQueue();
                     Invoke(nameof(DestroyObject), 1f);
                     actionButton.SetActive(false);
                     return;

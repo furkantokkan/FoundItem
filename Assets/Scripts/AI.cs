@@ -17,7 +17,7 @@ public class AI : MonoBehaviour
     internal int indexCount;
     internal bool objectTaked = false;
     private bool reachedFirstPos = false;
-
+    public bool test;
     private void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -31,7 +31,25 @@ public class AI : MonoBehaviour
 
     void Update()
     {
-
+        if (objectTaked)
+        {
+            try
+            {
+                Transform exitPos = GameManager.instance.exit.transform;
+                float distance = Vector3.Distance(transform.position, exitPos.position);
+                print(distance);
+                if (distance < 1.65f)
+                {
+                    print("test");
+                    Destroy(this.gameObject);
+                }
+                agent.SetDestination(exitPos.position);
+                return;
+            }
+            catch
+            {
+            }
+        }
         if (canWantObject())
         {
             previewParrent.SetActive(true);
@@ -69,6 +87,11 @@ public class AI : MonoBehaviour
             target = RequestNewTarget();
         }
     }
+    public void LeaveQueue()
+    {
+        GameManager.instance.queue[indexCount].clientList.Remove(this.gameObject);
+        GameManager.instance.queue[indexCount].currentClientCount--;
+    }
    public bool canWantObject()
     {
         if (transform.position.x >= GameManager.instance.queue[indexCount].headOfQueue.transform.position.x
@@ -81,11 +104,6 @@ public class AI : MonoBehaviour
         {
             return false;
         }
-    }
-    private void OnDisable()
-    {
-        GameManager.instance.queue[indexCount].clientList.Remove(this.gameObject);
-        GameManager.instance.queue[indexCount].currentClientCount--;
     }
     Transform RequestNewTarget()
     {

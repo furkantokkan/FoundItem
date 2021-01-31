@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
     [Header("QueueSettings")]
     public QueueSettings[] queue;
     public static GameManager instance;
+    public Transform exit;
     [Header("Object Settings")]
     public GameObject[] beltToSpawn;
     public GameObject[] objectsToSpawn;
