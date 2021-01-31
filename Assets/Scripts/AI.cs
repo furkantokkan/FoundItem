@@ -32,6 +32,10 @@ public class AI : MonoBehaviour
 
     void Update()
     {
+        if (GameManager.instance.gameFinished)
+        {
+            return;
+        }
         Vector3 velo = agent.velocity;
         Vector3 localvel = transform.InverseTransformDirection(velo);
         if (anim != null)

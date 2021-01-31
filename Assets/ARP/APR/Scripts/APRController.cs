@@ -171,6 +171,11 @@ namespace ARP.APR.Scripts
 		////////////////
 		void Update()
 		{
+            if (GameManager.instance.gameFinished)
+            {
+				ResetWalkCycle();
+				return;
+            }
 			if(useControls && !inAir)
 			{
 				PlayerMovement();
