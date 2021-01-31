@@ -17,8 +17,8 @@ public class ObjectGiver : MonoBehaviour
                 return;
             }
             if (GameManager.instance.queue[objectCheckIndex].clientList[0].GetComponent<AI>().canWantObject() &&
-                GameManager.instance.queue[objectCheckIndex].clientList[0].GetComponent<AI>().wantedObject.GetComponent<MeshCollider>().sharedMesh ==
-                other.gameObject.GetComponent<MeshCollider>().sharedMesh)
+                GameManager.instance.queue[objectCheckIndex].clientList[0].GetComponent<AI>().wantedObject.GetComponent<ObjectProperties>().previewImage ==
+                other.gameObject.GetComponent<ObjectProperties>().previewImage)
             {
                 print("match");
                 GameManager.instance.queue[objectCheckIndex].clientList[0].GetComponent<AI>().objectTaked = true;
@@ -39,8 +39,8 @@ public class ObjectGiver : MonoBehaviour
                 return;
             }
             if (GameManager.instance.queue[objectCheckIndex].clientList[0].GetComponent<AI>().canWantObject() &&
-                GameManager.instance.queue[objectCheckIndex].clientList[0].GetComponent<AI>().wantedObject.GetComponent<MeshCollider>().sharedMesh ==
-                other.gameObject.GetComponent<MeshCollider>().sharedMesh)
+                GameManager.instance.queue[objectCheckIndex].clientList[0].GetComponent<AI>().wantedObject.GetComponent<ObjectProperties>().previewImage ==
+                other.gameObject.GetComponent<ObjectProperties>().previewImage)
             {
                 print("match");
                 GameManager.instance.queue[objectCheckIndex].clientList[0].GetComponent<AI>().objectTaked = true;
