@@ -14,6 +14,7 @@ public class AI : MonoBehaviour
 
     NavMeshAgent agent;
     Transform target;
+    internal Animator anim;
     internal int indexCount;
     internal bool objectTaked = false;
     private bool reachedFirstPos = false;
@@ -31,6 +32,19 @@ public class AI : MonoBehaviour
 
     void Update()
     {
+        Vector3 velo = agent.velocity;
+        Vector3 localvel = transform.InverseTransformDirection(velo);
+
+            if (localvel.z < 0.1)
+            {
+                anim.SetInteger("State", 3);
+            }
+            else
+            {
+                anim.SetInteger("State", 1);
+            }
+       
+
         if (objectTaked)
         {
             try
@@ -53,6 +67,7 @@ public class AI : MonoBehaviour
         if (canWantObject())
         {
             previewParrent.SetActive(true);
+            anim.SetInteger("State", 2);
             previewParrent.GetComponentInChildren<Image>().sprite = wantedObject.GetComponent<ObjectProperties>().previewImage;
         }
         else

@@ -20,16 +20,10 @@ public class ObjectGiver : MonoBehaviour
                 GameManager.instance.queue[objectCheckIndex].clientList[0].GetComponent<AI>().wantedObject.GetComponent<MeshCollider>().sharedMesh ==
                 other.gameObject.GetComponent<MeshCollider>().sharedMesh)
             {
-                if (Input.GetKeyDown(KeyCode.E))
-                {
                     print("match");
                     GameManager.instance.queue[objectCheckIndex].clientList[0].GetComponent<AI>().objectTaked = true;
                     GameManager.instance.queue[objectCheckIndex].clientList[0].GetComponent<AI>().LeaveQueue();
                     Invoke(nameof(DestroyObject), 1f);
-                    actionButton.SetActive(false);
-                    return;
-                }
-                actionButton.SetActive(true);
             }
             else
             {
