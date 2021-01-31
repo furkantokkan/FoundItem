@@ -125,7 +125,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 549336e1d9c9c9242b7467b317c4875a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  previewImage: {fileID: 0}
+  previewImage: {fileID: 21300000, guid: 959cd2d1cf0e38f4db0873f9481145e7, type: 3}
   scoreAmount: 12
 --- !u!64 &7005959745813430883
 MeshCollider:
