@@ -31,6 +31,7 @@ public class AI : MonoBehaviour
 
     void Update()
     {
+
         if (canWantObject())
         {
             previewParrent.SetActive(true);
