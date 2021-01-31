@@ -11,7 +11,6 @@ public class AnimatorOverrider : MonoBehaviour
         int rand = Random.Range(0, chars.Count);
 
         chars[rand].SetActive(true);
-        
 
     }
 

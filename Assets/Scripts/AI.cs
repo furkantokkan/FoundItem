@@ -94,9 +94,8 @@ public class AI : MonoBehaviour
     }
    public bool canWantObject()
     {
-        if (transform.position.x >= GameManager.instance.queue[indexCount].headOfQueue.transform.position.x
-          && transform.position.z >= GameManager.instance.queue[indexCount].headOfQueue.transform.position.z &&
-          this.gameObject == GameManager.instance.queue[indexCount].clientList[0].gameObject)
+        float distance = Vector3.Distance(transform.position, GameManager.instance.queue[indexCount].headOfQueue.transform.position);
+        if (this.gameObject == GameManager.instance.queue[indexCount].clientList[0].gameObject && distance < 1.5f)
         {
             return true;
         }

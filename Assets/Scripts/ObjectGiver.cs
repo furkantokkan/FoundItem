@@ -12,6 +12,10 @@ public class ObjectGiver : MonoBehaviour
     {
         if (other.tag == "CanBeGrabbed")
         {
+            if (other.gameObject.GetComponent<MeshCollider>() == null)
+            {
+                return;
+            }
             if (GameManager.instance.queue[objectCheckIndex].clientList[0].GetComponent<AI>().canWantObject() &&
                 GameManager.instance.queue[objectCheckIndex].clientList[0].GetComponent<AI>().wantedObject.GetComponent<MeshCollider>().sharedMesh ==
                 other.gameObject.GetComponent<MeshCollider>().sharedMesh)
@@ -37,6 +41,10 @@ public class ObjectGiver : MonoBehaviour
     {
         if (other.tag == "CanBeGrabbed")
         {
+            if (other.gameObject.GetComponent<MeshCollider>() == null)
+            {
+                return;
+            }
             if (GameManager.instance.queue[objectCheckIndex].clientList[0].GetComponent<AI>().canWantObject() &&
                 GameManager.instance.queue[objectCheckIndex].clientList[0].GetComponent<AI>().wantedObject.GetComponent<MeshCollider>().sharedMesh ==
                 other.gameObject.GetComponent<MeshCollider>().sharedMesh)
