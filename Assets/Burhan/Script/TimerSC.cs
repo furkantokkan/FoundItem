@@ -10,11 +10,6 @@ public class TimerSC : MonoBehaviour
     public GameObject InGame;
     public GameObject Finish;
 
-    void Start()
-    {
-        
-    }
-
     // Update is called once per frame
     void Update()
     {
@@ -23,7 +18,12 @@ public class TimerSC : MonoBehaviour
         if(time <= 0)
         {
             Finish.SetActive(true);
+            GameManager.instance.gameFinished = true;
             InGame.SetActive(false);
+        }
+        else
+        {
+            GameManager.instance.gameFinished = false;
         }
     }
 }

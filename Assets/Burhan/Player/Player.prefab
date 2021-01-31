@@ -41,7 +41,7 @@ GameObject:
   - component: {fileID: 1071992667549987878}
   m_Layer: 0
   m_Name: Thight.R
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -72,7 +72,7 @@ GameObject:
   - component: {fileID: 4996039041483833739}
   m_Layer: 0
   m_Name: Spine
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -168,7 +168,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: -0.5, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.5424579, y: 0.09333022, z: -0.10463898}
+  m_ConnectedAnchor: {x: -0.5424585, y: 0.093330234, z: -0.10463919}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 0
@@ -326,7 +326,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0.5, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.013174082, y: -0.53193235, z: -0.009786709}
+  m_ConnectedAnchor: {x: -0.013174175, y: -0.53193307, z: -0.009787468}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 0
@@ -424,7 +424,7 @@ GameObject:
   - component: {fileID: 2073011760710784557}
   m_Layer: 10
   m_Name: APR_UpperRightLeg
-  m_TagString: CanBeGrabbed
+  m_TagString: Player
   m_Icon: {fileID: 7866945982896999795, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -484,7 +484,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0.5, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.7589024, y: -0.16859983, z: -0.007583914}
+  m_ConnectedAnchor: {x: 0.75890344, y: -0.16859981, z: -0.007584243}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 0
@@ -642,7 +642,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: -0.5, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.008767184, y: 0.5227779, z: -0.009835285}
+  m_ConnectedAnchor: {x: -0.008767688, y: 0.5227786, z: -0.009835914}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 0
@@ -740,7 +740,7 @@ GameObject:
   - component: {fileID: 2073011760710784515}
   m_Layer: 10
   m_Name: APR_Body
-  m_TagString: CanBeGrabbed
+  m_TagString: Player
   m_Icon: {fileID: 7866945982896999795, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -800,7 +800,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: -0.5, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.021016661, y: 0.61687106, z: 0.020822244}
+  m_ConnectedAnchor: {x: 0.02101773, y: 0.616871, z: 0.020822244}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 0
@@ -898,7 +898,7 @@ GameObject:
   - component: {fileID: 2073011760710784516}
   m_Layer: 10
   m_Name: APR_Root
-  m_TagString: CanBeGrabbed
+  m_TagString: Player
   m_Icon: {fileID: 7866945982896999795, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -958,7 +958,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0.5, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -4.2188475e-14, y: 1.086125, z: 0.00800001}
+  m_ConnectedAnchor: {x: 11.912803, y: 1.086125, z: 4.108764}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 2
@@ -1116,7 +1116,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0.5, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.52296746, y: 0.091002606, z: -0.00067146024}
+  m_ConnectedAnchor: {x: 0.5229674, y: 0.091002524, z: -0.00067163364}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 0
@@ -1276,7 +1276,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: -0.5, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.0037537152, y: 0.4744843, z: -0.15096292}
+  m_ConnectedAnchor: {x: -0.0037541431, y: 0.4744842, z: -0.1509629}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 0
@@ -1544,7 +1544,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0.5, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.015739927, y: -0.6049574, z: 0.21792258}
+  m_ConnectedAnchor: {x: -0.0157406, y: -0.6049578, z: 0.21792205}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 0
@@ -1655,7 +1655,7 @@ GameObject:
   - component: {fileID: 2073011760710784561}
   m_Layer: 10
   m_Name: APR_UpperLeftLeg
-  m_TagString: CanBeGrabbed
+  m_TagString: Player
   m_Icon: {fileID: 7866945982896999795, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1715,7 +1715,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0.5, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.69239765, y: -0.16860019, z: -0.007583914}
+  m_ConnectedAnchor: {x: -0.692399, y: -0.16860016, z: -0.007584243}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 0
@@ -1873,7 +1873,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0.5, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.016502868, y: -0.5929342, z: 0.0488607}
+  m_ConnectedAnchor: {x: 0.016503185, y: -0.59293395, z: 0.048860952}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 0
@@ -2032,7 +2032,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0.5, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.03285448, y: -0.60531986, z: 0.21777469}
+  m_ConnectedAnchor: {x: 0.032856572, y: -0.6053195, z: 0.21777387}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 0
@@ -2143,7 +2143,7 @@ GameObject:
   - component: {fileID: 2073011760710784575}
   m_Layer: 10
   m_Name: APR_LowerLeftLeg
-  m_TagString: CanBeGrabbed
+  m_TagString: Player
   m_Icon: {fileID: 7866945982896999795, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2203,7 +2203,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0.5, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.017348045, y: -0.5929338, z: 0.04887664}
+  m_ConnectedAnchor: {x: -0.017346436, y: -0.5929338, z: 0.048875917}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 0
@@ -2362,7 +2362,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: -0.5, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.011988289, y: 0.5235922, z: -0.008027511}
+  m_ConnectedAnchor: {x: -0.011988748, y: 0.5235938, z: -0.0080271745}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 0
@@ -2536,7 +2536,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0.5, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.017889582, y: -0.5250446, z: -0.008101668}
+  m_ConnectedAnchor: {x: -0.017889902, y: -0.5250446, z: -0.00810168}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 0
@@ -2815,7 +2815,7 @@ SkinnedMeshRenderer:
   m_SortingOrder: 0
   serializedVersion: 2
   m_Quality: 0
-  m_UpdateWhenOffscreen: 0
+  m_UpdateWhenOffscreen: 1
   m_SkinnedMotionVectors: 1
   m_Mesh: {fileID: -8940830635110266497, guid: 42e999e02fb3bdf48b1439e9f4f201de, type: 3}
   m_Bones:
@@ -2852,7 +2852,7 @@ GameObject:
   - component: {fileID: 2362661133665252319}
   m_Layer: 0
   m_Name: GGJ_Officer
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2946,7 +2946,7 @@ GameObject:
   - component: {fileID: 627539261909073190}
   m_Layer: 0
   m_Name: Thight.L
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3008,7 +3008,7 @@ GameObject:
   - component: {fileID: 6663373180575867713}
   m_Layer: 0
   m_Name: Armature
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3100,7 +3100,7 @@ GameObject:
   - component: {fileID: 3418665055970669703}
   m_Layer: 0
   m_Name: Shin.L
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3191,7 +3191,7 @@ GameObject:
   - component: {fileID: 7565067188466346519}
   m_Layer: 0
   m_Name: Root
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3314,7 +3314,7 @@ GameObject:
   - component: {fileID: 8618686641445204321}
   m_Layer: 0
   m_Name: Spine01
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -11,8 +11,8 @@ public class AnimatorOverrider : MonoBehaviour
         int rand = Random.Range(0, chars.Count);
 
         chars[rand].SetActive(true);
-        
 
+        GetComponent<AI>().anim = chars[rand].GetComponent<Animator>();
     }
 
     // Update is called once per frame

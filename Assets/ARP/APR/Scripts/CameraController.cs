@@ -2,16 +2,16 @@
 
 
 //-------------------------------------------------------------
-    //--APR Player
-    //--Camera Controller
-    //
-    //--Unity Asset Store - Version 1.0
-    //
-    //--By The Famous Mouse
-    //
-    //--Twitter @FamousMouse_Dev
-    //--Youtube TheFamouseMouse
-    //-------------------------------------------------------------
+//--APR Player
+//--Camera Controller
+//
+//--Unity Asset Store - Version 1.0
+//
+//--By The Famous Mouse
+//
+//--Twitter @FamousMouse_Dev
+//--Youtube TheFamouseMouse
+//-------------------------------------------------------------
 
 
 namespace ARP.APR.Scripts
@@ -21,22 +21,24 @@ namespace ARP.APR.Scripts
         [Header("Player To Follow")]
         //Player root
         public Transform APRRoot;
-    
+        public float rayDistance = 5f;
+        public Transform rayTarget;
+        Collider lastHit;
         [Header("Follow Properties")]
         //Follow values
         public float distance = 10.0f; //The distance is only used when "rotateCamera" is enabled, when disabled the camera offset is used
         public float smoothness = 0.15f;
-    
+
         [Header("Rotation Properties")]
         //Rotate with input
         public bool rotateCamera = true;
         public float rotateSpeed = 5.0f;
-    
+
         //Min & max camera angle
         public float minAngle = -45.0f;
         public float maxAngle = -10.0f;
-    
-    
+
+
         //Private variables
         private Camera cam;
         private float currentX = 0.0f;
@@ -51,9 +53,9 @@ namespace ARP.APR.Scripts
         {
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
-        
+
             cam = Camera.main;
-        
+
             offset = cam.transform.position;
         }
 
@@ -65,24 +67,45 @@ namespace ARP.APR.Scripts
             currentY = currentY + Input.GetAxis("Mouse Y") * rotateSpeed;
 
             currentY = Mathf.Clamp(currentY, minAngle, maxAngle);
+           Vector3 newRayTarget = new Vector3(0, 0f, rayTarget.position.z);
+            Ray ray = Camera.main.ScreenPointToRay(newRayTarget);
+            Debug.DrawRay(Camera.main.transform.position, newRayTarget, Color.red);
+            RaycastHit hit;
+            if (Physics.Raycast(ray, out hit, rayDistance))
+            {
+                print(hit.collider.gameObject);
+                if (hit.collider.gameObject.layer == LayerMask.NameToLayer("Wall"))
+                {
+                    if (lastHit != null)
+                    {
+                        if (lastHit.gameObject != hit.collider.gameObject)
+                        {
+                            lastHit.gameObject.GetComponent<MeshRenderer>().enabled = true;
+                        }
+                    }
+                    lastHit = hit.collider;
+
+                    hit.collider.gameObject.GetComponent<MeshRenderer>().enabled = false;
+                }
+            }
         }
-    
-    
+
+
         //Camera follow and rotation
         void FixedUpdate()
         {
-            if(rotateCamera)
+            if (rotateCamera)
             {
                 dir = new Vector3(0, 0, -distance);
                 rotation = Quaternion.Euler(-currentY, currentX, 0);
-                cam.transform.position = Vector3.Lerp (cam.transform.position, APRRoot.position + rotation * dir, smoothness);
+                cam.transform.position = Vector3.Lerp(cam.transform.position, APRRoot.position + rotation * dir, smoothness);
                 cam.transform.LookAt(APRRoot.position);
             }
-        
-            if(!rotateCamera)
+
+            if (!rotateCamera)
             {
                 var targetRotation = Quaternion.LookRotation(APRRoot.position - cam.transform.position);
-                cam.transform.position = Vector3.Lerp (cam.transform.position, APRRoot.position + offset, smoothness);
+                cam.transform.position = Vector3.Lerp(cam.transform.position, APRRoot.position + offset, smoothness);
                 cam.transform.rotation = Quaternion.Slerp(cam.transform.rotation, targetRotation, smoothness);
             }
         }

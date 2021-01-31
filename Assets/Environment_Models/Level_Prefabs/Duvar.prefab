@@ -43,6 +43,7 @@ GameObject:
   - component: {fileID: 8121885608801599443}
   - component: {fileID: 6292175896932059929}
   - component: {fileID: 4240827651304155095}
+  - component: {fileID: 1672877007768207221}
   m_Layer: 0
   m_Name: GGJ_Duvar
   m_TagString: Untagged
@@ -124,3 +125,15 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 12, y: 4.1363516, z: 0.7495656}
   m_Center: {x: 0, y: 2.0681758, z: 0.15175886}
+--- !u!114 &1672877007768207221
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5499652520194517708}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd2a29480ca17c9479f11f23d774a57c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

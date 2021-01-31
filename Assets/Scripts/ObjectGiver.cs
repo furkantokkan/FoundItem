@@ -12,20 +12,17 @@ public class ObjectGiver : MonoBehaviour
     {
         if (other.tag == "CanBeGrabbed")
         {
+            if (other.gameObject.GetComponent<MeshCollider>() == null)
+            {
+                return;
+            }
             if (GameManager.instance.queue[objectCheckIndex].clientList[0].GetComponent<AI>().canWantObject() &&
                 GameManager.instance.queue[objectCheckIndex].clientList[0].GetComponent<AI>().wantedObject.GetComponent<MeshCollider>().sharedMesh ==
                 other.gameObject.GetComponent<MeshCollider>().sharedMesh)
             {
-                if (Input.GetKeyDown(KeyCode.E))
-                {
-                    print("match");
-                    GameManager.instance.queue[objectCheckIndex].clientList[0].GetComponent<AI>().objectTaked = true;
-                    GameManager.instance.queue[objectCheckIndex].clientList[0].GetComponent<AI>().LeaveQueue();
-                    Invoke(nameof(DestroyObject), 1f);
-                    actionButton.SetActive(false);
-                    return;
-                }
-                actionButton.SetActive(true);
+                print("match");
+                GameManager.instance.queue[objectCheckIndex].clientList[0].GetComponent<AI>().objectTaked = true;
+                Destroy(other.gameObject, 1f);
             }
             else
             {
@@ -37,13 +34,17 @@ public class ObjectGiver : MonoBehaviour
     {
         if (other.tag == "CanBeGrabbed")
         {
+            if (other.gameObject.GetComponent<MeshCollider>() == null)
+            {
+                return;
+            }
             if (GameManager.instance.queue[objectCheckIndex].clientList[0].GetComponent<AI>().canWantObject() &&
                 GameManager.instance.queue[objectCheckIndex].clientList[0].GetComponent<AI>().wantedObject.GetComponent<MeshCollider>().sharedMesh ==
                 other.gameObject.GetComponent<MeshCollider>().sharedMesh)
             {
                 print("match");
                 GameManager.instance.queue[objectCheckIndex].clientList[0].GetComponent<AI>().objectTaked = true;
-                Invoke(nameof(DestroyObject), 2);
+                Destroy(other.gameObject, 1f);
             }
             else
             {
@@ -52,8 +53,5 @@ public class ObjectGiver : MonoBehaviour
         }
     }
 
-    void DestroyObject(Collider other)
-    {
-        Destroy(other.gameObject);
-    }
+
 }

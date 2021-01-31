@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour
     private int objectIndex = -1;
     private bool canSpawnClient = true;
     private bool canSpawnObject = true;
-
+    internal bool gameFinished = false;
 
     private void Awake()
     {
@@ -44,6 +44,10 @@ public class GameManager : MonoBehaviour
     }
     void Update()
     {
+        if (gameFinished)
+        {
+            return;
+        }
         if (canSpawnClient && queue[queueIndex].currentClientCount < queue[queueIndex].maxClientCount)
         {
             StartCoroutine(SpawnNewClient(queueIndex));
