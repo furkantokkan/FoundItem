@@ -1,10 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class ObjectGiver : MonoBehaviour
 {
     public int objectCheckIndex;
+    private bool founded;
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "CanBeGrabbed")
@@ -15,7 +17,7 @@ public class ObjectGiver : MonoBehaviour
             {
                 print("match");
                 GameManager.instance.queue[objectCheckIndex].clientList[0].GetComponent<AI>().objectTaked = true;
-                Destroy(other.gameObject, 2f);
+                Invoke(nameof(DestroyObject),2);
             }
             else
             {
@@ -33,12 +35,17 @@ public class ObjectGiver : MonoBehaviour
             {
                 print("match");
                 GameManager.instance.queue[objectCheckIndex].clientList[0].GetComponent<AI>().objectTaked = true;
-                Destroy(other.gameObject, 2f);
+                Invoke(nameof(DestroyObject), 2);
             }
             else
             {
                 print("notMatch");
             }
         }
+    }
+
+    void DestroyObject(Collider other)
+    {
+        Destroy(other.gameObject);
     }
 }

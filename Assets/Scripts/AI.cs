@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
+using System;
 public class AI : MonoBehaviour
 {
     [Header("Move Settings")]
@@ -16,6 +17,7 @@ public class AI : MonoBehaviour
     internal int indexCount;
     internal bool objectTaked = false;
     private bool reachedFirstPos = false;
+
     private void Awake()
     {
         agent = GetComponent<NavMeshAgent>();

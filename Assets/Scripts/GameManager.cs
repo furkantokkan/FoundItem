@@ -18,6 +18,8 @@ public class GameManager : MonoBehaviour
     private int objectIndex = -1;
     private bool canSpawnClient = true;
     private bool canSpawnObject = true;
+
+
     private void Awake()
     {
         if (instance == null)
@@ -41,6 +43,16 @@ public class GameManager : MonoBehaviour
                 queueIndex = 0;
             }
         }
+        else if(canSpawnClient && queue[queueIndex].currentClientCount == queue[queueIndex].maxClientCount)
+        {
+            queueIndex += 1;
+
+            if (queueIndex == queue.Length)
+            {
+                queueIndex = 0;
+            }
+        }
+
         if (canSpawnObject && currentObjectCount < maxObjectCount)
         {
             StartCoroutine(SpawnNewObject());
