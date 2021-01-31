@@ -11,7 +11,7 @@ public class AI : MonoBehaviour
     [Header("Object Pick Settings")]
     public GameObject wantedObject;
     public GameObject previewParrent;
-
+    public Image previewImage;
     NavMeshAgent agent;
     Transform target;
     internal Animator anim;
@@ -34,13 +34,16 @@ public class AI : MonoBehaviour
     {
         Vector3 velo = agent.velocity;
         Vector3 localvel = transform.InverseTransformDirection(velo);
-        if (localvel.z < 0.1)
+        if (anim != null)
         {
-            anim.SetInteger("State", 3);
-        }
-        else
-        {
-            anim.SetInteger("State", 1);
+            if (localvel.z < 0.1)
+            {
+                anim.SetInteger("State", 3);
+            }
+            else
+            {
+                anim.SetInteger("State", 1);
+            }
         }
         if (objectTaked)
         {
@@ -70,7 +73,7 @@ public class AI : MonoBehaviour
         if (canWantObject())
         {
             anim.SetInteger("State", 2);
-            previewParrent.GetComponentInChildren<Image>().sprite = wantedObject.GetComponent<ObjectProperties>().previewImage;
+            previewImage.sprite = wantedObject.GetComponent<ObjectProperties>().previewImage;
             previewParrent.SetActive(true);
         }
         else
