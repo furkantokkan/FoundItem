@@ -18,7 +18,7 @@ public class AI : MonoBehaviour
     internal int indexCount;
     internal bool objectTaked = false;
     private bool reachedFirstPos = false;
-    public bool test;
+    private bool leave = true;
     private void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -34,41 +34,44 @@ public class AI : MonoBehaviour
     {
         Vector3 velo = agent.velocity;
         Vector3 localvel = transform.InverseTransformDirection(velo);
-
-            if (localvel.z < 0.1)
-            {
-                anim.SetInteger("State", 3);
-            }
-            else
-            {
-                anim.SetInteger("State", 1);
-            }
-       
-
+        if (localvel.z < 0.1)
+        {
+            anim.SetInteger("State", 3);
+        }
+        else
+        {
+            anim.SetInteger("State", 1);
+        }
         if (objectTaked)
         {
             try
             {
                 Transform exitPos = GameManager.instance.exit.transform;
                 float distance = Vector3.Distance(transform.position, exitPos.position);
-                print(distance);
-                if (distance < 1.65f)
+                if (leave)
                 {
-                    print("test");
+                    LeaveQueue();
+                    print("leave");
+                    leave = false;
+                }
+                if (distance < 2f)
+                {
                     Destroy(this.gameObject);
                 }
                 agent.SetDestination(exitPos.position);
                 return;
             }
-            catch
+            catch 
             {
+
             }
+
         }
         if (canWantObject())
         {
-            previewParrent.SetActive(true);
             anim.SetInteger("State", 2);
             previewParrent.GetComponentInChildren<Image>().sprite = wantedObject.GetComponent<ObjectProperties>().previewImage;
+            previewParrent.SetActive(true);
         }
         else
         {
@@ -104,13 +107,14 @@ public class AI : MonoBehaviour
     }
     public void LeaveQueue()
     {
-        GameManager.instance.queue[indexCount].clientList.Remove(this.gameObject);
+        GameManager.instance.queue[indexCount].clientList[1].GetComponent<AI>().target = null;
+        GameManager.instance.queue[indexCount].clientList.RemoveAt(0);
         GameManager.instance.queue[indexCount].currentClientCount--;
     }
-   public bool canWantObject()
+    public bool canWantObject()
     {
         float distance = Vector3.Distance(transform.position, GameManager.instance.queue[indexCount].headOfQueue.transform.position);
-        if (this.gameObject == GameManager.instance.queue[indexCount].clientList[0].gameObject && distance < 1.5f)
+        if (this.gameObject == GameManager.instance.queue[indexCount].clientList[0].gameObject && distance < 2f)
         {
             return true;
         }
