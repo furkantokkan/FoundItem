@@ -7,12 +7,11 @@ public class ObjectGiver : MonoBehaviour
 {
     public int objectCheckIndex;
     private bool founded;
-    public GameObject actionButton;
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "CanBeGrabbed")
         {
-            if (other.gameObject.GetComponent<MeshCollider>() == null)
+            if (other.gameObject.GetComponent<ObjectProperties>() == null)
             {
                 return;
             }
@@ -34,7 +33,7 @@ public class ObjectGiver : MonoBehaviour
     {
         if (other.tag == "CanBeGrabbed")
         {
-            if (other.gameObject.GetComponent<MeshCollider>() == null)
+            if (other.gameObject.GetComponent<ObjectProperties>() == null)
             {
                 return;
             }

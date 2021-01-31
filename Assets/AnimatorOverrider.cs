@@ -8,7 +8,7 @@ public class AnimatorOverrider : MonoBehaviour
     
     void Awake()
     {
-        int rand = Random.Range(0, chars.Count);
+        int rand = Random.Range(0, chars.Count  );
 
         chars[rand].SetActive(true);
 
