@@ -31,6 +31,13 @@ public class GameManager : MonoBehaviour
             Destroy(this.gameObject);
         }
     }
+    private void Start()
+    {
+        for (int i = 0; i < queue.Length - 1; i++)
+        {
+            queue[i].objectGiver.SetActive(true);
+        }
+    }
     void Update()
     {
         if (canSpawnClient && queue[queueIndex].currentClientCount < queue[queueIndex].maxClientCount)
@@ -126,6 +133,7 @@ public class QueueSettings
     [Header("QueueSettings")]
     public Transform headOfQueue;
     public Transform clientSpawnTransform;
+    public GameObject objectGiver;
     internal int currentClientCount;
     internal List<GameObject> clientList = new List<GameObject>();
     [Header("Client Settings")]

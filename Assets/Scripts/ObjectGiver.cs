@@ -7,6 +7,7 @@ public class ObjectGiver : MonoBehaviour
 {
     public int objectCheckIndex;
     private bool founded;
+    private GameObject actionButton;
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "CanBeGrabbed")
@@ -15,9 +16,15 @@ public class ObjectGiver : MonoBehaviour
                 GameManager.instance.queue[objectCheckIndex].clientList[0].GetComponent<AI>().wantedObject.GetComponent<MeshCollider>().sharedMesh ==
                 other.gameObject.GetComponent<MeshCollider>().sharedMesh)
             {
-                print("match");
-                GameManager.instance.queue[objectCheckIndex].clientList[0].GetComponent<AI>().objectTaked = true;
-                Invoke(nameof(DestroyObject),2);
+                if (Input.GetKeyDown(KeyCode.E))
+                {
+                    print("match");
+                    GameManager.instance.queue[objectCheckIndex].clientList[0].GetComponent<AI>().objectTaked = true;
+                    Invoke(nameof(DestroyObject), 1f);
+                    actionButton.SetActive(false);
+                    return;
+                }
+                actionButton.SetActive(true);
             }
             else
             {
