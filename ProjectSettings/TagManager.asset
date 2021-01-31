@@ -26,9 +26,9 @@ TagManager:
   - Player_3
   - Player_4
   - Ground
-  - 
-  - 
-  - 
+  - PlayerBlock
+  - AI
+  - Player
   - 
   - 
   - 
